@@ -22,3 +22,18 @@ docker run --name jenkins -d --publish 127.0.0.1:8080:8080 --publish 127.0.0.1:5
         --env JENKINS_OPTS="--prefix=/jenkins" \
         jenkins/jenkins:lts
 ```
+
+
+## Start gitea with docker 
+
+```
+mkdir -p /home/sysco/docker/gitea/data
+docker run --name gitea \
+        -d \
+        --publish 22:22 \
+        --publish 3000:3000 \
+        -v /home/sysco/docker/gitea/data:/data \
+        -v /etc/timezone:/etc/timezone:ro \
+        -v /etc/localtime:/etc/localtime:ro \
+        gitea/gitea
+```
